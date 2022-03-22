@@ -1,0 +1,22 @@
+body {
+    background-image: url("static/images/Hepatitis-B-Origin.jpg");
+    background-color: blueviolet;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+  }
+
+.form-area {
+    display: grid;
+    /* centered */
+    height: 190vh;
+    justify-content: center;
+    align-content: center;
+  }
+button {
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16mm;
+    background-color: rgb(153, 42, 42);
+    border-color: black;
+}

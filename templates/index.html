@@ -1,0 +1,176 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"> -->
+  <link rel="stylesheet" href="/static/css/style.css">  
+  <title>Document</title>
+</head>
+
+<body>
+    <section class="container-fluid my-4">
+        <div class="row vh-90">
+          <div class="col-md-12 mx-auto">
+            <div class="form-area">
+              <div class="card mb-3 shadow-lg" style="min-width: 600px; ">
+                <div class="card-header">
+                    <h2 class="my-0 font-weight-normal text-center ">Predict Sub Species</h2>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="card-body">
+                      <h4 class="card-title">Fill in the form</h4>
+                      <form method="POST" class="form">
+                        <div class="col">
+                            <div class="row">
+                                <label for="age">Age</label>
+                                <input type="number" name="age" id="age">
+                            </div>
+                            <div class="row">
+                                <label for='sex'>Sex: </label>
+                                <select id="sex" name="sex">
+                                    <option value="0">SELECT</option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for='steroid'>Steroid: </label>
+                                <select id="steroid" name="steroid">
+                                    <option value="0">SELECT</option>
+                                    <option value="1">No</option>
+                                    <option value="2">Yes</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for='antivirals'>Anti Virals: </label>
+                                <select id="antivirals" name="antivirals">
+                                    <option value="0">SELECT</option>
+                                    <option value="1">No</option>
+                                    <option value="2">Yes</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for='fatigue'>Fatigue: </label>
+                                <select id="fatigue" name="fatigue">
+                                    <option value="0">SELECT</option>
+                                    <option value="1">No</option>
+                                    <option value="2">Yes</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for='malaise'>Malaise: </label>
+                                <select id="malaise" name="malaise">
+                                    <option value="0">SELECT</option>
+                                    <option value="1">No</option>
+                                    <option value="2">Yes</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for='anorexia'>Anorexia: </label>
+                                <select id="anorexia" name="anorexia">
+                                    <option value="0">SELECT</option>
+                                    <option value="1">No</option>
+                                    <option value="2">Yes</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for='liver_big'>Big Liver: </label>
+                                <select id="liver_big" name="liver_big">
+                                    <option value="0">SELECT</option>
+                                    <option value="1">No</option>
+                                    <option value="2">Yes</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for='liver_firm'>Firm Liver: </label>
+                                <select id="liver_firm" name="liver_firm">
+                                    <option value="0">SELECT</option>
+                                    <option value="1">No</option>
+                                    <option value="2">Yes</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for='spleen_palable'>Palable Spleen: </label>
+                                <select id="spleen_palable" name="spleen_palable">
+                                    <option value="0">SELECT</option>
+                                    <option value="1">No</option>
+                                    <option value="2">Yes</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for='spiders'>Spiders: </label>
+                                <select id="spiders" name="spiders">
+                                    <option value="0">SELECT</option>
+                                    <option value="1">No</option>
+                                    <option value="2">Yes</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for='ascites'>Ascites: </label>
+                                <select id="ascites" name="ascites">
+                                    <option value="0">SELECT</option>
+                                    <option value="1">No</option>
+                                    <option value="2">Yes</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for='varices'>Varices: </label>
+                                <select id="varices" name="varices">
+                                    <option value="0">SELECT</option>
+                                    <option value="1">No</option>
+                                    <option value="2">Yes</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for="bilirubin">Bilirubin (1-8)</label>
+                                <input type="number" name="bilirubin" id="bilirubin">
+                            </div>
+                            <div class="row">
+                                <label for='alk_phosphate'>Alk Phosphate: </label>
+                                <input type="number" name="alk_phosphate" id="alk_phosphate">
+                            </div>
+                            <div class="row">
+                                <label for='sgot'>Sgot: </label>
+                                <input type="number" name="sgot" id="sgot">
+                            </div>
+                            <div class="row">
+                                <label for="albumin" title="A protein made by the liver">Albumin (2-7):</label>
+                                <input type="number" name="albumin" id="albumin">
+                            </div>
+                            <div class="row">
+                                <label for='protime' title="How long it takes blood to form a clot">Prothrombin time: </label>
+                                <input type="number" name="protime" id="protime">
+                            </div>
+                            <div class="row">
+                                <label for='histology'>Histology: </label>
+                                <select id="histology" name="histology">
+                                    <option value="0">SELECT</option>
+                                    <option value="1">No</option>
+                                    <option value="2">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                          <div class="row ">
+                            <button type="submit" class="btn btn-primary form-control my-3">Predict</button>
+                          </div>
+                        </div>
+                      </form>
+                      <div class="alert alert-success" role="alert">
+                        <h2>{{result}}</h2>
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Heapatitis Prediction</h1>
+    <form method="post">
+        <div class="form-wrapper">
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age">
+        </div>
+        <div class="form-wrapper">
+            <label for='sex'>Sex: </label>
+            <select id="sex" name="sex">
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select>
+        </div>
+        <div class="form-wrapper">
+            <label for='steroid'>Steroid: </label>
+            <select id="steroid" name="steroid">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+        <div class="form-wrapper">
+            <label for='antivirals'>Anti Virals: </label>
+            <select id="antivirals" name="antivirals">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+        <div class="form-wrapper">
+            <label for='fatigue'>Fatigue: </label>
+            <select id="fatigue" name="fatigue">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+        <div class="form-wrapper">
+            <label for='malaise'>Malaise: </label>
+            <select id="malaise" name="malaise">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+        <div class="form-wrapper">
+            <label for='anorexia'>Anorexia: </label>
+            <select id="anorexia" name="anorexia">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+        <div class="form-wrapper">
+            <label for='liver_big'>Big Liver: </label>
+            <select id="liver_big" name="liver_big">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+        <div class="form-wrapper">
+            <label for='liver_firm'>Firm Liver: </label>
+            <select id="liver_firm" name="liver_firm">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+        <div class="form-wrapper">
+            <label for='spleen_palable'>Palable Spleen: </label>
+            <select id="spleen_palable" name="spleen_palable">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+        <div class="form-wrapper">
+            <label for='spiders'>Spiders: </label>
+            <select id="spiders" name="spiders">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+        <div class="form-wrapper">
+            <label for='ascites'>Ascites: </label>
+            <select id="ascites" name="ascites">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+        <div class="form-wrapper">
+            <label for='varices'>Varices: </label>
+            <select id="varices" name="varices">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+        <div class="form-wrapper">
+            <label for="bilirubin">Bilirubin (1-8)</label>
+            <input type="number" name="bilirubin" id="bilirubin">
+        </div>
+        <div class="form-wrapper">
+            <label for='alk_phosphate'>Alk Phosphate: </label>
+            <input type="number" name="alk_phosphate" id="alk_phosphate">
+        </div>
+        <div class="form-wrapper">
+            <label for='sgot'>Sgot: </label>
+            <input type="number" name="sgot" id="sgot">
+        </div>
+        <div class="form-wrapper">
+            <label for="albumin">Albumin (2-7)</label>
+            <input type="number" name="albumin" id="albumin">
+        </div>
+        <div class="form-wrapper">
+            <label for='protime'>Protime: </label>
+            <input type="number" name="protime" id="protime">
+        </div>
+        <div class="form-wrapper">
+            <label for='histology'>Histology: </label>
+            <select id="histology" name="histology">
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+        <button>Predict</button>
+    </form>
+    <div>
+        <h4>Prediction</h4>
+        <h1>{{result}}</h1>
+    </div>
+</body>
+</html>
