@@ -1,6 +1,6 @@
 body {
-    background-image: url("static/images/Hepatitis-B-Origin.jpg");
     background-color: blueviolet;
+    background-image: url("/static/images/Hepatitis-B-Origin.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: overlay;

@@ -14,6 +14,7 @@ def pred(age,sex,steroid,antivirals,fatigue,malaise,anorexia,liver_big,liver_fir
     x = load_model().get('scaler').transform(userinp)
     print(type(x),x,x.shape)
     p= load_model().get('classifier').predict(x)
+    
     if p[0] == 1:
         return 'Suffering from Hepatitis'
     else:
