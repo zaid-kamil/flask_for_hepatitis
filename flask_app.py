@@ -1,7 +1,12 @@
 from flask import Flask, render_template, request
 from joblib import load
+from flask_sqlalchemy import SQLAlchemy
+from Database.database import create_user
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+db = SQLAlchemy(app)
 
 def load_model():
     filepath = 'ml_src/hepatitis.pkl'
@@ -15,6 +20,8 @@ def pred(age,sex,steroid,antivirals,fatigue,malaise,anorexia,liver_big,liver_fir
     print(type(x),x,x.shape)
     p= load_model().get('classifier').predict(x)
     
+    user = create_user(age)
+
     if p[0] == 1:
         return 'Suffering from Hepatitis'
     else:
