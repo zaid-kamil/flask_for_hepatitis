@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from joblib import load
 from flask_sqlalchemy import SQLAlchemy
-from Database.database import create_user
+import data_set
 
 app = Flask(__name__)
 
@@ -20,7 +20,7 @@ def pred(age,sex,steroid,antivirals,fatigue,malaise,anorexia,liver_big,liver_fir
     print(type(x),x,x.shape)
     p= load_model().get('classifier').predict(x)
     
-    user = create_user(age)
+    #user = data_set.creatuser(age)
 
     if p[0] == 1:
         return 'Suffering from Hepatitis'
@@ -52,6 +52,8 @@ def index():
         protime = int(form.get('protime'))
         histology = int(form.get('histology'))
         result = pred(age,sex,steroid,antivirals,fatigue,malaise,anorexia,liver_big,liver_firm,spleen_palable,
+            spiders,ascites,varices,bilirubin,alk_phosphate,sgot,albumin,protime,histology)
+        user = data_set.creatuser(age,sex,steroid,antivirals,fatigue,malaise,anorexia,liver_big,liver_firm,spleen_palable,
             spiders,ascites,varices,bilirubin,alk_phosphate,sgot,albumin,protime,histology)
         return render_template('index.html',age=age, sex=sex, steroid=steroid, antivirals=antivirals,
                     fatigue=fatigue, malaise=malaise, anorexia=anorexia, liver_big=liver_big,
