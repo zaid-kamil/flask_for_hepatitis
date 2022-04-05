@@ -1,9 +1,10 @@
-from flask_app import db
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     age = db.Column(db.Integer)
-    sex = db.Column(db.Integer)
+    sex = db.Column(db.String)
     steroid = db.Column(db.Integer)
     antivirals = db.Column(db.Integer)
     fatigue = db.Column(db.Integer)
@@ -21,18 +22,34 @@ class User(db.Model):
     albumin = db.Column(db.Integer)
     protime = db.Column(db.Integer)
     histology = db.Column(db.Integer)
-    def __init__(self, age):
-        self.age=age
 
-def creatuser(new_age):
-    user = User(new_age)            # Create a data with the provided input
+    def __init__(self,age,sex,steroid,antivirals,fatigue,malaise,anorexia,liver_big,liver_firm,spleen_palable,
+            spiders,ascites,varices,bilirubin,alk_phosphate,sgot,albumin,protime,histology):
+        self.age=age
+        self.sex=sex
+        self.steroid=steroid
+        self.antivirals=antivirals
+        self.fatigue=fatigue
+        self.malaise=malaise
+        self.anorexia=anorexia
+        self.liver_big=liver_big
+        self.liver_firm=liver_firm
+        self.spleen_palable=spleen_palable
+        self.spiders=spiders
+        self.ascites=ascites
+        self.varices=varices
+        self.bilirubin=bilirubin
+        self.alk_phosphate=alk_phosphate
+        self.sgot=sgot
+        self.albumin=albumin
+        self.protime=protime
+        self.histology=histology
+
+def creatuser(new_age,sex,steroid,antivirals,fatigue,malaise,anorexia,liver_big,liver_firm,spleen_palable,
+            spiders,ascites,varices,bilirubin,alk_phosphate,sgot,albumin,protime,histology):
+    user = User(new_age,sex,steroid,antivirals,fatigue,malaise,anorexia,liver_big,liver_firm,spleen_palable,
+            spiders,ascites,varices,bilirubin,alk_phosphate,sgot,albumin,protime,histology)            # Create a data with the provided input
     db.session.add(user)        # Actually add data to the database
     db.session.commit()      # Save all pending changes to the database
     return user
 
-if __name__ == "__main__":
-
-    # Run this file directly to create the database tables.
-    print("Creating database tables...")
-    db.create_all()
-    print("Done!")

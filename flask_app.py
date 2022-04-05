@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request
 from joblib import load
-from flask_sqlalchemy import SQLAlchemy
-import data_set
+from data_set import creatuser, db
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
-db = SQLAlchemy(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.sqlite'
+with app.app_context():
+    db.init_app(app)
+    db.create_all()
 
 def load_model():
     filepath = 'ml_src/hepatitis.pkl'
@@ -19,8 +20,6 @@ def pred(age,sex,steroid,antivirals,fatigue,malaise,anorexia,liver_big,liver_fir
     x = load_model().get('scaler').transform(userinp)
     print(type(x),x,x.shape)
     p= load_model().get('classifier').predict(x)
-    
-    #user = data_set.creatuser(age)
 
     if p[0] == 1:
         return 'Suffering from Hepatitis'
@@ -53,8 +52,10 @@ def index():
         histology = int(form.get('histology'))
         result = pred(age,sex,steroid,antivirals,fatigue,malaise,anorexia,liver_big,liver_firm,spleen_palable,
             spiders,ascites,varices,bilirubin,alk_phosphate,sgot,albumin,protime,histology)
-        user = data_set.creatuser(age,sex,steroid,antivirals,fatigue,malaise,anorexia,liver_big,liver_firm,spleen_palable,
+        
+        user = creatuser(age,sex,steroid,antivirals,fatigue,malaise,anorexia,liver_big,liver_firm,spleen_palable,
             spiders,ascites,varices,bilirubin,alk_phosphate,sgot,albumin,protime,histology)
+        
         return render_template('index.html',age=age, sex=sex, steroid=steroid, antivirals=antivirals,
                     fatigue=fatigue, malaise=malaise, anorexia=anorexia, liver_big=liver_big,
                     liver_firm=liver_firm, spleen_palable=spleen_palable, spiders=spiders,
@@ -64,4 +65,3 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
-        
