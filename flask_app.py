@@ -60,7 +60,7 @@ def index():
                     fatigue=fatigue, malaise=malaise, anorexia=anorexia, liver_big=liver_big,
                     liver_firm=liver_firm, spleen_palable=spleen_palable, spiders=spiders,
                     ascites=ascites, varices=varices, bilirubin=bilirubin, alk_phosphate=alk_phosphate,
-                    sgot=sgot, albumin=albumin, protime=protime, histology=histology, result=result)
+                    sgot=sgot, albumin=albumin, protime=protime, histology=histology, result=result,user=user)
     return render_template('index.html')
 
 if __name__ == '__main__':
