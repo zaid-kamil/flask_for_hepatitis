@@ -6,3 +6,4 @@ sklearn
 joblib
 flask
 sqlalchemy
+plotly
